@@ -9,8 +9,9 @@ import { getNewListings } from '~/services/redditClient.js'
 export default {
   components: {
   },
-  mounted() {
-    getNewListings('pwa')
+  mounted: async function () {
+    let listings = await getNewListings('pwa')
+    console.log(listings)
   }
 }
 </script>
