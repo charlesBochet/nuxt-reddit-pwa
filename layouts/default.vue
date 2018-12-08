@@ -3,7 +3,7 @@
     <Header />
     <div class="nav-container" style="max-width:100%">
       <div>
-        <nuxt-link class="nav-container__title" to="/">Posts</nuxt-link>
+        <nuxt-link class="nav-container__title" to="/comments">Posts</nuxt-link>
       </div>
     </div>
     <div class="content__container">
