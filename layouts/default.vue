@@ -6,7 +6,9 @@
         <nuxt-link class="nav-container__title" to="/">Posts</nuxt-link>
       </div>
     </div>
-    <nuxt/>
+    <div class="content__container">
+      <nuxt/>
+    </div>
   </div>
 </template>
 
@@ -26,15 +28,10 @@ a {
   text-decoration: none;
 }
 
-html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
+html, body {
+  width: 100%;
+  margin: 0;
+  background-color: rgb(218, 224, 230);
 }
 
 .nav-container {
@@ -44,6 +41,7 @@ html {
   flex-direction: row;
   -webkit-box-pack: justify;
   justify-content: space-between;
+  background-color: white;
   min-width: 260px;
   margin: 0px auto;
 }
@@ -60,6 +58,16 @@ html {
   color: rgb(0, 121, 211);
   border-bottom: 3px solid rgb(0, 121, 211);
   margin: 0px 5px;
+}
+
+.content__container {
+  display: flex;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  justify-content: center;
+  max-width: 1248px;
+  margin: 0px auto;
+  padding: 20px 24px;
 }
 
 *, *:before, *:after {

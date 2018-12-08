@@ -18,6 +18,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        background-color: white;
     }
     .header__logo {
         width: 32px;
