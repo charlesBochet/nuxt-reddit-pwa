@@ -1,59 +1,53 @@
 <template>
-  <section class="container">
-    <ul class="homepage" v-if="listings">
-      <listing
-        v-for="(listing, index) in listings"
-        :key="index"
-        :listing="listing"
-      >
-      </listing>
-    </ul>
-  </section>
+  <ul v-if="posts" class="posts__container">
+    <li
+      v-for="(post, index) in posts"
+      :key="index"
+      class="posts__item">
+      <post
+        :post="post" />
+    </li>
+  </ul>
 </template>
 
 <script>
-import { getNewListings } from '~/services/redditClient.js'
-import Listing from '~/components/Listing'
+import { getNewPosts } from '~/services/redditClient.js'
+import Post from '~/components/Post'
 
 export default {
   components: {
-    Listing,
+    Post,
   },
   data() {
     return {
-      listings: null
+      posts: null
     }
   },
   mounted: async function () {
-    this.listings = await getNewListings('pwa')
-    console.log(this.listings)
+    this.posts = await getNewPosts('pwa')
+    console.log(this.posts)
   }
 }
 </script>
-
 <style lang="scss">
-  .container {
+.posts{
+  &__container {
     width: 100%;
-    height: 100%;
-
-    .homepage {
-      width: 100%;
-      @media (min-width: 992px) {
-        width: 70%;
-      }
-      margin: auto;
-      margin-bottom: 20px;
-      background-color: #fff;
-      padding: 0;
-
-      &__listing {
-        font-size: 14px;
-        font-weight: bold;
-        list-style: none;
-        padding: 10px 10px;
-        border-bottom: 1px solid #ccc;
-      }
+    @media (min-width: 992px) {
+      width: 70%;
     }
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 0;
   }
-</style>
 
+  &__item {
+    list-style: none;
+    padding: 10px 10px;
+    border-bottom: 1px solid #ccc;
+    min-height: 100px;
+    cursor: pointer;
+  }
+}
+</style>

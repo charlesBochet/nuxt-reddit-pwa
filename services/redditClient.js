@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export async function getNewListings(subReddit) {
+export async function getNewPosts(subReddit) {
   try {
     let { data } = await axios.get(`https://www.reddit.com/r/${subReddit}/new.json?sort=new`)
     return data.data.children.map((item) => (item.data))
