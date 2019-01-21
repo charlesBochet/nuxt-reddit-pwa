@@ -1,7 +1,7 @@
 <template>
   <section class="comments">
     <div class="comments__post">
-    <Post :post="post" />
+      <Post :post="post" />
     </div>
     <div
       class="comments__comment"
