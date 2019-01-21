@@ -1,8 +1,10 @@
 <template>
-  <section class="container">
-    <h1>{{ post.title }}</h1>
+  <section class="comments">
+    <div class="comments__post">
+    <Listing :listing="post" />
+    </div>
     <div
-      class="comment"
+      class="comments__comment"
       v-for="comment in comments"
       :key="comment.id"
     >
@@ -13,11 +15,13 @@
 
 <script>
 import { getComments } from '~/services/redditClient.js'
-import Comment from '~/components/comment'
+import Comment from '~/components/Comment'
+import Listing from '~/components/Listing'
 
 export default {
   components: {
-    Comment
+    Comment,
+    Listing
   },
   data: () => ({
     comments: [],
@@ -31,9 +35,17 @@ export default {
 }
 </script>
 
-<style>
-.comment {
-  margin: 25px;
+<style lang="scss">
+.comments {
+  &__post {
+    padding: 10px 10px;
+    min-height: 100px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  &__comment {
+    margin: 25px;
+  }
 }
 </style>
 
