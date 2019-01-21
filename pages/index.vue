@@ -1,47 +1,54 @@
 <template>
   <section class="container">
-    <div class="homepage__left-container"></div>
-    <div class="homepage__right-container"></div>
+    <ul class="homepage" v-if="listings">
+      <listing
+        v-for="(listing, index) in listings"
+        :key="index"
+        :listing="listing"
+      >
+      </listing>
+    </ul>
   </section>
 </template>
 
 <script>
 import { getNewListings } from '~/services/redditClient.js'
+import Listing from '~/components/Listing'
 
 export default {
   components: {
+    Listing,
+  },
+  data() {
+    return {
+      listings: null
+    }
   },
   mounted: async function () {
-    let listings = await getNewListings('pwa')
-    console.log(listings)
+    this.listings = await getNewListings('pwa')
+    console.log(this.listings)
   }
 }
 </script>
 
 <style lang="scss">
-.container {
-  flex: 1;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  -webkit-box-pack: center;
-  justify-content: center;
-  max-width: 1248px;
-  position: relative;
-  margin: 0px auto;
+  .container {
+    width: 100%;
+    height: 100%;
 
-}
-.homepage {
-  &__left-container {
-    width: 648px;
-    background-color: white;
+    .homepage {
+      width: 100%;
+      background-color: #fff;
+      padding: 0;
+
+      &__listing {
+        font-size: 14px;
+        font-weight: bold;
+        list-style: none;
+        padding: 10px 10px;
+        border-bottom: 1px solid #ccc;
+      }
+    }
   }
-  &__right-container {
-    margin-left: 24px;
-    width: 312px;
-    flex: 0 0 312px;
-    background-color: white;
-  }
-}
 </style>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="app__container">
-    <Header />
+    <Header subreddit="r/PWA" />
     <div class="app__nav-container">
       <nuxt-link class="nav-container__title" to="/comments">Posts</nuxt-link>
     </div>
@@ -22,7 +22,6 @@
 
 <style lang="scss">
 .app {
-
   &__container {
     display: flex;
     flex-direction: column;

@@ -10,10 +10,16 @@
             </nuxt-link>
         </div>
         <div class="sub-header__container">
-            <div class="s1wtsv0-2 dRNraE"></div>
+            {{ subreddit }}
         </div>
     </div>
 </template>
+
+<script>
+  export default {
+    props: ['subreddit'],
+  }
+</script>
 
 <style scoped>
     .header__container {
@@ -40,7 +46,11 @@
     }
     .sub-header__container {
         display: block;
-        flex-direction: row;
+        text-align: center;
+        color: white;
+        line-height: 64px;
+        font-weight: bold;
+        font-size: 24px;
         height: 64px;
         min-width: 260px;
         background: center top rgb(51, 168, 255);
