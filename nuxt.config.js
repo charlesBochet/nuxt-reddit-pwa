@@ -18,6 +18,16 @@ module.exports = {
   '~/assets/base.css',
   ],
 
+  manifest: {
+    name: 'Nuxt Reddit PWA',
+    lang: 'fr',
+    short_name: 'Reddit PWA',
+    start_url: '/',
+    display: 'fullscreen',
+    background_color: '#fff',
+    description: 'Reddit Progressive Web Apps, shaping the future!'
+  },
+
   /*
   ** Customize the progress bar color
   */
@@ -39,6 +49,9 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  modules: [
+    '@nuxtjs/pwa',
+  ],
 }
 
