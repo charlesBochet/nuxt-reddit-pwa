@@ -8,19 +8,18 @@
     </div>
     <div class="listing__content">
       <div class="listing__details">
-        <span class="listing__subreddit">{{ listing.subreddit_name_prefixed }}</span>
-        <span class="listing__time">{{ listing.created_utc | fromNow }}</span>
-        <span class="listing__author">{{ listing.author }}</span>
+        <span class="listing__details__subreddit">{{ listing.subreddit_name_prefixed }}</span>
+        <span class="listing__details__time">{{ listing.created_utc | fromNow }}</span>
+        <span class="listing__details__author">{{ listing.author }}</span>
       </div>
       <div class="listing__title">
         {{ listing.title }}
       </div>
       <div class="listing__stats">
-        <span class="listing__comments">{{ listing.num_comments }}</span>
-        <span class="listing__upvotes">{{ listing.ups }}</span>
+        <span class="listing__stats__comments">{{ listing.num_comments }} comments</span> -
+        <span class="listing__stats__ups">{{ listing.ups }} upvotes</span>
       </div>
     </div>
-
   </li>
 </template>
 
@@ -31,7 +30,7 @@ export default {
   props: ['listing'],
   filters: {
     fromNow(date) {
-      return moment(date).fromNow();
+      return moment.unix(date).fromNow();
     }
   }
 }
@@ -39,8 +38,11 @@ export default {
 
 <style lang="scss">
   .listing {
+    cursor: pointer;
+    @media (min-width: 992px) {
+      font-size: 25px;
+    }
     font-size: 14px;
-    font-weight: bold;
     list-style: none;
     padding: 10px 10px;
     border-bottom: 1px solid #ccc;
@@ -53,11 +55,38 @@ export default {
         width: 100%;
       }
     }
+
     &__content {
-      padding: 5px;
+      margin-left: 2%;
       width: 65%;
       display: inline-block;
       vertical-align: top;
+    }
+
+    &__details {
+      font-weight: 100;
+      color: #aaa;
+      overflow: hidden;
+      word-break: break-all;
+      height: 1.5em;
+      &__subreddit {
+        font-weight: bold;
+      }
+      &__time {
+        font-size: 0.8em;
+      }
+      &__author {
+        font-size: 0.9em;
+      }
+    }
+
+    &__title {
+      font-weight: bold;
+    }
+
+    &__stats {
+      color: #aaa;
+      margin-top: 5px;
     }
   }
 </style>

@@ -38,6 +38,11 @@ export default {
 
     .homepage {
       width: 100%;
+      @media (min-width: 992px) {
+        width: 70%;
+      }
+      margin: auto;
+      margin-bottom: 20px;
       background-color: #fff;
       padding: 0;
 
