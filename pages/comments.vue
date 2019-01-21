@@ -1,7 +1,7 @@
 <template>
   <section class="comments">
     <div class="comments__post">
-    <Listing :listing="post" />
+    <Post :post="post" />
     </div>
     <div
       class="comments__comment"
@@ -16,12 +16,12 @@
 <script>
 import { getComments } from '~/services/redditClient.js'
 import Comment from '~/components/Comment'
-import Listing from '~/components/Listing'
+import Post from '~/components/Post'
 
 export default {
   components: {
     Comment,
-    Listing
+    Post
   },
   data: () => ({
     comments: [],

@@ -1,36 +1,36 @@
 <template>
-  <ul v-if="listings" class="listings__container">
+  <ul v-if="posts" class="posts__container">
     <li
-      v-for="(listing, index) in listings"
+      v-for="(post, index) in posts"
       :key="index"
-      class="listings__item">
-      <listing
-        :listing="listing" />
+      class="posts__item">
+      <post
+        :post="post" />
     </li>
   </ul>
 </template>
 
 <script>
-import { getNewListings } from '~/services/redditClient.js'
-import Listing from '~/components/Listing'
+import { getNewPosts } from '~/services/redditClient.js'
+import Post from '~/components/Post'
 
 export default {
   components: {
-    Listing,
+    Post,
   },
   data() {
     return {
-      listings: null
+      posts: null
     }
   },
   mounted: async function () {
-    this.listings = await getNewListings('pwa')
-    console.log(this.listings)
+    this.posts = await getNewPosts('pwa')
+    console.log(this.posts)
   }
 }
 </script>
 <style lang="scss">
-.listings{
+.posts{
   &__container {
     width: 100%;
     @media (min-width: 992px) {
