@@ -1,5 +1,5 @@
 <template>
-  <li
+  <span
     class="listing"
     :href="listing.permalink"
   >
@@ -20,7 +20,7 @@
         <span class="listing__stats__ups">{{ listing.ups }} upvotes</span>
       </div>
     </div>
-  </li>
+  </span>
 </template>
 
 <script>
@@ -38,15 +38,10 @@ export default {
 
 <style lang="scss">
   .listing {
-    cursor: pointer;
     @media (min-width: 992px) {
       font-size: 25px;
     }
     font-size: 14px;
-    list-style: none;
-    padding: 10px 10px;
-    border-bottom: 1px solid #ccc;
-    min-height: 100px;
 
     &__thumbnail {
       width: 30%;

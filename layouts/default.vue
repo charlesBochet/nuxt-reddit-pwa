@@ -5,7 +5,9 @@
       <nuxt-link class="nav-container__title" to="/comments">Posts</nuxt-link>
     </div>
     <div class="app__content-container">
-      <nuxt/>
+      <div class="app__list-container">
+        <nuxt/>
+      </div>
     </div>
   </div>
 </template>
@@ -32,6 +34,17 @@
     flex: 1;
     display: flex;
     padding: 20px 24px;
+  }
+
+  &__list-container {
+    width: 100%;
+    @media (min-width: 992px) {
+      width: 70%;
+    }
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 0;
   }
 
   &__nav-container {

@@ -1,14 +1,13 @@
 <template>
-  <section class="container">
-    <ul class="homepage" v-if="listings">
+  <ul v-if="listings" class="listings__container">
+    <li
+      v-for="(listing, index) in listings"
+      :key="index"
+      class="listings__item">
       <listing
-        v-for="(listing, index) in listings"
-        :key="index"
-        :listing="listing"
-      >
-      </listing>
-    </ul>
-  </section>
+        :listing="listing" />
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -30,30 +29,25 @@ export default {
   }
 }
 </script>
-
 <style lang="scss">
-  .container {
+.listings{
+  &__container {
     width: 100%;
-    height: 100%;
-
-    .homepage {
-      width: 100%;
-      @media (min-width: 992px) {
-        width: 70%;
-      }
-      margin: auto;
-      margin-bottom: 20px;
-      background-color: #fff;
-      padding: 0;
-
-      &__listing {
-        font-size: 14px;
-        font-weight: bold;
-        list-style: none;
-        padding: 10px 10px;
-        border-bottom: 1px solid #ccc;
-      }
+    @media (min-width: 992px) {
+      width: 70%;
     }
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 0;
   }
-</style>
 
+  &__item {
+    list-style: none;
+    padding: 10px 10px;
+    border-bottom: 1px solid #ccc;
+    min-height: 100px;
+    cursor: pointer;
+  }
+}
+</style>
