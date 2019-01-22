@@ -1,0 +1,40 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/repo
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:8.10-browsers
+    steps:
+      # Checkout repository
+      - checkout
+
+      # Restore cache
+      - restore_cache:
+          key: yarn-{{ checksum "package-lock.json" }}
+
+      # Install dependencies
+      - run:
+          name: Install Dependencies
+          command: NODE_ENV=dev npm i
+
+      # Keep cache
+      - save_cache:
+          key: yarn-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
+
+      # Test
+      - run:
+          name: Tests
+          command: echo "No tests yet :/"
+  deploy:
+    working_directory: ~/repo
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:8.10-browsers
+    steps:
+      # Install dependencies
+      - run:
+          name: Install Dependencies
+          command: ./deploy.sh
