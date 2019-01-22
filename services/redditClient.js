@@ -22,5 +22,5 @@ export async function getComments(postId) {
 }
 
 function handleApiError(error) {
-  console.log('Something very bad happens')
+  console.error(error)
 }

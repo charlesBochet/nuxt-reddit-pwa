@@ -2,7 +2,7 @@
   <div class="app__container">
     <Header :subreddit="subreddit" />
     <div class="app__nav-container">
-      <nuxt-link class="nav-container__title" to="/comments">Posts</nuxt-link>
+      <nuxt-link class="nav-container__title" to="/">Posts</nuxt-link>
     </div>
     <div class="app__content-container">
       <div class="app__list-container">
@@ -37,7 +37,6 @@
   }
 
   &__content-container {
-    flex: 1;
     display: flex;
     padding: 20px 24px;
   }
@@ -64,6 +63,7 @@
     min-width: 260px;
     margin: 0px auto;
     width: 100%;
+    flex-shrink: 0;
 
     .nav-container__title {
       font-size: 14px;

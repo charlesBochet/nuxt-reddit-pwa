@@ -25,7 +25,6 @@ export default {
   },
   mounted: async function () {
     this.posts = await getNewPosts()
-    console.log(this.posts)
   }
 }
 </script>
