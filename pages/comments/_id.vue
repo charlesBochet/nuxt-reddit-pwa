@@ -27,10 +27,9 @@ export default {
     comments: [],
     post: {}
   }),
-  mounted: async function() {
-    const [[post], comments] = await getComments('a408bd')
-    this.post = post
-    this.comments = comments
+  asyncData: async function () {
+    const [[post], comments] = await getComments(this.$route.params.id)
+    return { posts: posts, comments: comments }
   }
 }
 </script>

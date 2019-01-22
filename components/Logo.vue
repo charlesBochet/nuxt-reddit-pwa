@@ -8,13 +8,16 @@
 </template>
 <style scoped>
 .header__logo {
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
 }
 .header__logo-container {
-    padding: 8px 8px 8px 0;
+  padding: 8px 8px 8px 0;
+  display: inline-block;
+  vertical-align: middle;
 }
 .header__title {
-    height: 18px;
+  height: 18px;
+  vertical-align: middle;
 }
 </style>

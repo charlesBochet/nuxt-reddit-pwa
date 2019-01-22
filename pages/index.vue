@@ -1,12 +1,13 @@
 <template>
   <ul v-if="posts" class="posts__container">
-    <li
+    <router-link tag="li"
+      :to="'/comments/' + post.id"
       v-for="(post, index) in posts"
       :key="index"
       class="posts__item">
       <post
         :post="post" />
-    </li>
+    </router-link>
   </ul>
 </template>
 
@@ -23,9 +24,9 @@ export default {
       posts: null
     }
   },
-  mounted: async function () {
-    this.posts = await getNewPosts()
-    console.log(this.posts)
+  asyncData: async function () {
+    let posts = await getNewPosts()
+    return { posts: posts }
   }
 }
 </script>
@@ -36,8 +37,6 @@ export default {
     @media (min-width: 992px) {
       width: 70%;
     }
-    margin: auto;
-    margin-bottom: 20px;
     background-color: #fff;
     padding: 0;
   }
