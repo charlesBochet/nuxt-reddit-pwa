@@ -24,7 +24,7 @@ export default {
     }
   },
   mounted: async function () {
-    this.posts = await getNewPosts('pwa')
+    this.posts = await getNewPosts()
     console.log(this.posts)
   }
 }

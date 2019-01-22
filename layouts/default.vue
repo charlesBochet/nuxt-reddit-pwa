@@ -1,6 +1,6 @@
 <template>
   <div class="app__container">
-    <Header subreddit="r/PWA" />
+    <Header :subreddit="subreddit" />
     <div class="app__nav-container">
       <nuxt-link class="nav-container__title" to="/comments">Posts</nuxt-link>
     </div>
@@ -14,10 +14,16 @@
 
 <script>
   import Header from '~/components/Header'
+  import { SUBREDDIT } from '~/constants'
 
   export default {
     components: {
       Header,
+    },
+    data: function() {
+      return {
+        subreddit: SUBREDDIT
+      }
     }
   }
 </script>

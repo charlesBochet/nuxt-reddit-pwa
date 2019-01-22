@@ -28,7 +28,7 @@ export default {
     post: {}
   }),
   mounted: async function() {
-    const [[post], comments] = await getComments('pwa', 'a408bd/you_need_neither_pwa_nor_amp_to_make_your_website')
+    const [[post], comments] = await getComments('a408bd')
     this.post = post
     this.comments = comments
   }
