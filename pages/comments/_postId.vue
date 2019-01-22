@@ -24,13 +24,16 @@ export default {
     Post
   },
   data: () => ({
+    post: {},
     comments: [],
-    post: {}
+    isError: false,
   }),
-  mounted: async function() {
-    const [[post], comments] = await getComments('a408bd')
-    this.post = post
-    this.comments = comments
+  async asyncData ({ params }) {
+    const [[post], comments] = await getComments(params.postId)
+    return {
+      post,
+      comments
+    }
   }
 }
 </script>

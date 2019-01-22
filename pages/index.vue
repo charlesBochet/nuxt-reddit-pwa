@@ -1,12 +1,13 @@
 <template>
   <ul v-if="posts" class="posts__container">
-    <li
-      v-for="(post, index) in posts"
-      :key="index"
-      class="posts__item">
-      <post
-        :post="post" />
-    </li>
+      <li
+        v-for="(post, index) in posts"
+        :key="index"
+        class="posts__item">
+        <nuxt-link class="nav-container__title" :to="`/comments/${post.id}`">
+          <post :post="post" />
+        </nuxt-link>
+      </li>
   </ul>
 </template>
 
