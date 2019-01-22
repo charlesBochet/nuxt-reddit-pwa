@@ -1,32 +1,24 @@
 <template>
   <ul v-if="posts" class="posts__container">
-    <router-link tag="li"
-      :to="'/comments/' + post.id"
+    <li
       v-for="(post, index) in posts"
       :key="index"
       class="posts__item">
-      <post
-        :post="post" />
-    </router-link>
+    </li>
   </ul>
 </template>
 
 <script>
-import { getNewPosts } from '~/services/redditClient.js'
-import Post from '~/components/Post'
 
 export default {
   components: {
-    Post,
   },
   data() {
     return {
       posts: null
     }
   },
-  asyncData: async function () {
-    let posts = await getNewPosts()
-    return { posts: posts }
+  mounted: async function () {
   }
 }
 </script>
